@@ -1,5 +1,5 @@
 {
-  "name": "mnemis-connect-rtc",
+  "name": "mnemis-connect-server",
   "version": "1.0.0",
   "description": "RTC bot matchmaker — pairs web clients with bot Electron clients into TRTC rooms.",
   "license": "MIT",
