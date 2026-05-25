@@ -1,0 +1,13 @@
+services:
+  rtc:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - rtc-data:/data
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  rtc-data:

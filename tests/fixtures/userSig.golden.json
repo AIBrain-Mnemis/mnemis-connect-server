@@ -1,0 +1,11 @@
+{
+	"source": "node:crypto + node:zlib reference per Tencent userSig algorithm",
+	"input": {
+		"sdkAppId": 1400000000,
+		"secretKey": "MOCK_KEY_FOR_TEST_ONLY",
+		"userId": "user_test1234",
+		"currentSec": 1715000000,
+		"expireSec": 3600
+	},
+	"userSig": "eJxNilELgjAURv-LfQ5zajMGvQQ*KBpEy6CX0HaNS7jGtkSI-ntgBn1v3znnBbI8BANaEBAFISymTwq1p44m-HRoLx6dZ1GczIFT98YYUiBYEs77GhwNWQQR8x-x1CMIlrLVf*foBgJMXvB8XO8lr7osW8q6GexQKezbQp5rvd3pU8kfV92nxw28PyjcMz4_"
+}

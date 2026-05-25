@@ -1,0 +1,46 @@
+{
+  "name": "mnemis-connect-rtc",
+  "version": "1.0.0",
+  "description": "RTC bot matchmaker — pairs web clients with bot Electron clients into TRTC rooms.",
+  "license": "MIT",
+  "author": "AIBrain-Mnemis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIBrain-Mnemis/mnemis-connect-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AIBrain-Mnemis/mnemis-connect-server/issues"
+  },
+  "homepage": "https://github.com/AIBrain-Mnemis/mnemis-connect-server#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "better-sqlite3": "^11.7.0",
+    "chanfana": "2.8.3",
+    "hono": "4.11.1",
+    "tsx": "^4.19.0",
+    "zod": "3.25.67"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/server.ts",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --fix .",
+    "check": "biome check --fix .",
+    "start": "node --import tsx src/server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "schema": "npx chanfana"
+  }
+}

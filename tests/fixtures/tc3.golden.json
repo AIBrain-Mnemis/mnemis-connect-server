@@ -1,0 +1,12 @@
+{
+	"source": "node:crypto reference per Tencent TC3-HMAC-SHA256 algorithm",
+	"input": {
+		"secretId": "TEST_SECRET_ID",
+		"secretKey": "TEST_SECRET_KEY",
+		"region": "ap-guangzhou",
+		"action": "DismissRoom",
+		"currentSec": 1715000000,
+		"payload": "{\"SdkAppId\":1400000000,\"StrRoomId\":\"room_a1b2c3d4\"}"
+	},
+	"authorization": "TC3-HMAC-SHA256 Credential=TEST_SECRET_ID/2024-05-06/trtc/tc3_request, SignedHeaders=content-type;host;x-tc-action, Signature=f37770745d203742e12f550bf38b74c5d76ead78498391bcb752e252789ff4cd"
+}
