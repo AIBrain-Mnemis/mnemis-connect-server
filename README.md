@@ -20,13 +20,60 @@ cp .env.example .env   # fill in TRTC credentials
 npm run dev             # starts with auto-reload
 ```
 
+See [`docs/tencent-cloud-setup.md`](docs/tencent-cloud-setup.md) for how to obtain TRTC credentials from the Tencent Cloud console and configure the webhook.
+
 ## Docker
+
+### Run from prebuilt image (GHCR)
+
+CI publishes multi-arch images (`linux/amd64`, `linux/arm64`) on every push to `main`:
+
+- `ghcr.io/aibrain-mnemis/mnemis-connect-server:latest`
+- `ghcr.io/aibrain-mnemis/mnemis-connect-server:<package.json version>`
+
+The image is public — no `docker login` required.
+
+```bash
+docker pull ghcr.io/aibrain-mnemis/mnemis-connect-server:latest
+
+docker run -d \
+  --name mnemis-connect-server \
+  -p 3000:3000 \
+  -v rtc-data:/data \
+  --env-file .env \
+  --restart unless-stopped \
+  ghcr.io/aibrain-mnemis/mnemis-connect-server:latest
+```
+
+Or with `docker compose` against the prebuilt image (replace `build: .` with `image:` in `docker-compose.yml`):
+
+```yaml
+services:
+  rtc:
+    image: ghcr.io/aibrain-mnemis/mnemis-connect-server:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - rtc-data:/data
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  rtc-data:
+```
+
+```bash
+docker compose up -d
+```
+
+### Build locally
 
 ```bash
 docker compose up --build
 ```
 
-SQLite data persists in a Docker volume at `/data/rtc.db`.
+SQLite data persists in a Docker volume at `/data/rtc.db`. Update the image with `docker pull ... && docker compose up -d` (or `docker run` after stopping the old container).
 
 ## Test
 
